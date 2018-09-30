@@ -1,0 +1,44 @@
+<div ng-controller="MoviesCtrl">
+	<br>
+	<div class="card">
+	  <div class="card-header bg-info text-white">
+	    <h4 class="text-center">Movies</h4>
+	  </div>
+	  <div class="card-body">
+	  	<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Title</th>
+			      <th scope="col">Release Year</th>
+			      <th scope="col" ng-if="loggedIn">Actions</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <tr ng-repeat="movie in movies">
+			      <td>{{movie.title}}</td>
+			      <td>{{movie.release_year_roman}}</td>
+			      <td ng-if="loggedIn">
+			        <a class="btn btn-primary" href="#!/movie">Show</a>
+			      	<button class="btn btn-danger" ng-click="deleteMovie(movie)">Delete</button>
+			      </td>
+			    </tr>
+			  </tbody>
+
+			  <tfoot ng-if="loggedIn">
+			  	<tr>
+						<td>
+							<input placeholder="Title" type="text" name="title" class="form-control" ng-model="movie.title" required />
+						</td>
+						<td>
+							<input placeholder="Release Year" type="number" name="release_year" class="form-control" ng-model="movie.release_year" required />
+						</td>
+						<td>
+			      	<button class="btn btn-block btn-success" ng-click="createMovie()">Create</button>
+						</td>
+					</tr>
+			  </tfoot>
+			</table>
+	  </div>
+	</div>
+</div>
