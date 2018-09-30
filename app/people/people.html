@@ -11,7 +11,7 @@
 			      <th scope="col">Last Name</th>
 			      <th scope="col">First Name</th>
 			      <th scope="col">Aliases</th>
-			      <th scope="col">Actions</th>
+			      <th ng-if="loggedIn" scope="col">Actions</th>
 			    </tr>
 			  </thead>
 
@@ -21,7 +21,6 @@
 			      <td>{{person.first_name}}</td>
 			      <td>{{person.aliases}}</td>
 			      <td ng-if="loggedIn">
-			        <a class="btn btn-primary" href="#!/person">Show</a>
 			      	<button class="btn btn-danger" ng-click="deletePerson(person)">Delete</button>
 			      </td>
 			    </tr>

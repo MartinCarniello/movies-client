@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.signin',
   'myApp.movies',
   'myApp.people',
+  'myApp.moviesPeople',
   'myApp.version',
   'myApp.controllers'
 ]).

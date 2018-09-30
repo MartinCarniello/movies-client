@@ -19,7 +19,7 @@
 			      <td>{{movie.title}}</td>
 			      <td>{{movie.release_year_roman}}</td>
 			      <td ng-if="loggedIn">
-			        <a class="btn btn-primary" href="#!/movie">Show</a>
+			        <a class="btn btn-primary" href="#!/moviesPeople/{{movie.id}}">Show</a>
 			      	<button class="btn btn-danger" ng-click="deleteMovie(movie)">Delete</button>
 			      </td>
 			    </tr>

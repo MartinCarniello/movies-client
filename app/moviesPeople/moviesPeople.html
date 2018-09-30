@@ -1,0 +1,129 @@
+<div ng-controller="MoviesCtrl">
+	<br>
+	<div class="card">
+	  <div class="card-header bg-info text-white">
+	    <h4 class="text-center">Actors</h4>
+	  </div>
+	  <div class="card-body">
+	  	<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Last Name</th>
+			      <th scope="col">First Name</th>
+			      <th scope="col">Aliases</th>
+			      <th scope="col" ng-if="loggedIn">Actions</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <tr ng-repeat="moviePerson in moviesPeople | filter: { type: 'actor' }">
+			      <td>{{moviePerson.person.last_name}}</td>
+			      <td>{{moviePerson.person.first_name}}</td>
+			      <td>{{moviePerson.person.aliases}}</td>
+			      <td><button class="btn btn-danger" ng-click="deleteMoviePerson(moviePerson)">Delete</button></td>
+			    </tr>
+			  </tbody>
+
+			  <tfoot>
+			  	<tr>
+						<td>
+							<select class="form-control" name="personId" id="personId" ng-model="movieActor.personId">
+								<option value="{{null}}">Select a person</option>
+						    <option ng-repeat="person in people | includedInList:actors" value="{{person.id}}">{{person.last_name + " " + person.first_name}}</option>
+						  </select>
+						</td>
+						<td>
+			      	<button class="btn btn-block btn-success" ng-click="createMovieActor()" ng-disabled="movieActor.personId === null">Add</button>
+						</td>
+					</tr>
+			  </tfoot>
+			</table>
+	  </div>
+	</div>
+
+	<br>
+
+	<div class="card">
+	  <div class="card-header bg-primary text-white">
+	    <h4 class="text-center">Directors</h4>
+	  </div>
+	  <div class="card-body">
+	  	<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Last Name</th>
+			      <th scope="col">First Name</th>
+			      <th scope="col">Aliases</th>
+			      <th scope="col" ng-if="loggedIn">Actions</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <tr ng-repeat="moviePerson in moviesPeople | filter: { type: 'director' }">
+			      <td>{{moviePerson.person.last_name}}</td>
+			      <td>{{moviePerson.person.first_name}}</td>
+			      <td>{{moviePerson.person.aliases}}</td>
+			      <td><button class="btn btn-danger" ng-click="deleteMoviePerson(moviePerson)">Delete</button></td>
+			    </tr>
+			  </tbody>
+
+			  <tfoot>
+			  	<tr>
+						<td>
+							<select class="form-control" name="personId" id="personId" ng-model="movieDirector.personId">
+								<option value="{{null}}">Select a person</option>
+						    <option ng-repeat="person in people | includedInList:directors" value="{{person.id}}">{{person.last_name + " " + person.first_name}}</option>
+						  </select>
+						</td>
+						<td>
+			      	<button class="btn btn-block btn-success" ng-click="createMovieDirector()" ng-disabled="movieDirector.personId === null">Add</button>
+						</td>
+					</tr>
+			  </tfoot>
+			</table>
+	  </div>
+	</div>
+
+	<br>
+
+	<div class="card">
+	  <div class="card-header bg-warning text-white">
+	    <h4 class="text-center">Producers</h4>
+	  </div>
+	  <div class="card-body">
+	  	<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Last Name</th>
+			      <th scope="col">First Name</th>
+			      <th scope="col">Aliases</th>
+			      <th scope="col" ng-if="loggedIn">Actions</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <tr ng-repeat="moviePerson in moviesPeople | filter: { type: 'producer' }">
+			      <td>{{moviePerson.person.last_name}}</td>
+			      <td>{{moviePerson.person.first_name}}</td>
+			      <td>{{moviePerson.person.aliases}}</td>
+			      <td><button class="btn btn-danger" ng-click="deleteMoviePerson(moviePerson)">Delete</button></td>
+			    </tr>
+			  </tbody>
+
+			  <tfoot>
+			  	<tr>
+						<td>
+							<select class="form-control" name="personId" id="personId" ng-model="movieProducer.personId">
+								<option value="{{null}}">Select a person</option>
+						    <option ng-repeat="person in people | includedInList:producers" value="{{person.id}}">{{person.last_name + " " + person.first_name}}</option>
+						  </select>
+						</td>
+						<td>
+			      	<button class="btn btn-block btn-success" ng-click="createMovieProducer()" ng-disabled="movieProducer.personId === null">Add</button>
+						</td>
+					</tr>
+			  </tfoot>
+			</table>
+	  </div>
+	</div>
+</div>
